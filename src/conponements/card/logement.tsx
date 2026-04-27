@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
-import AddTofavori from "@/features/favoris/api";
+import AddTofavori, { DeleteFav } from "@/features/favoris/api";
 import { useEffect, useState } from "react";
 
 export default function CardLogement({
@@ -22,9 +22,7 @@ export default function CardLogement({
 }) {
   const [isFav, setIsfav] = useState<boolean>(true);
 
-  const handleAddFav = () => {
-    AddTofavori({ idFav });
-  };
+ 
   const fav= localStorage.getItem("fav")
  useEffect(() => {
     try {
@@ -41,6 +39,12 @@ export default function CardLogement({
      
     }
   }, [slug, idFav]);
+  const handleDeleteFav = ()=>{
+    DeleteFav({ idFav })
+  };
+   const handleAddFav = () => {
+    AddTofavori({ idFav });
+  };
   return (
     <div className=" w-full h-[552] bg-white flex flex-col rounded-[10px] relative">
       <Image
@@ -52,9 +56,9 @@ export default function CardLogement({
       />
       <div className="absolute top-1.5 right-1.5 w-8 h-8 cursor-pointer bg-white flex rounded-sm items-center justify-center">
         {isFav ? (
-          <CiHeart className="text-black" onClick={handleAddFav} />
+            <CiHeart className="text-black" onClick={handleAddFav} />
         ) : (
-          <FaHeart />
+            <FaHeart className="text-black"   onClick={handleDeleteFav}/>
         )}
       </div>
       <Link href={slug}>

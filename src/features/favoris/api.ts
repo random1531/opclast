@@ -15,6 +15,24 @@ export default async function AddTofavori({idFav}:{idFav:string}){
         
     }
 } 
+
+export async function DeleteFav({idFav}:{idFav:string}){
+     const token = Cookies.get("token");
+    try {
+        const res = await fetch(`http://localhost:5000/api/properties/${idFav}/favorite`,{
+            method:"DELETE",
+            headers:{ Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,}
+        })
+        const result = await res.json()
+        MyFav()
+        return result
+    } catch (error) {
+        
+    }
+}
+
 export async function MyFav(){
     const token = Cookies.get("token");
     const idUser = Cookies.get("uid");
