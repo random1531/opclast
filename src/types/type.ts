@@ -4,6 +4,11 @@ type PropertyHost = {
     picture: string | null
 }
 
+type ResponseConnec ={
+    token:string,
+    user:UserPublic
+}
+
 type UserPublic = {
     id: number
     name: string

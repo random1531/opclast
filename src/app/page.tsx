@@ -38,6 +38,7 @@ useEffect(() => {
       <div className=" w-full gap-4 grid md:grid-cols-2 lg:grid-cols-3 md:pr-0 pr-4 md:pl-0 pl-4">
       {logements.map((item)=>(
         <CardLogement 
+        idFav={item.id}
         slug={item.id} 
         Pictest={item.cover} 
         key={item.id} 

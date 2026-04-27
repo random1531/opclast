@@ -35,7 +35,7 @@ export default function Header() {
                                 <Link href={"/"}>Accueil</Link>
                                 <Link href={"/apropos"}>À propos</Link>
                                 <Link href={"#"}>Messagerie</Link>
-                                <Link href={"#"}>Favoris</Link>
+                                <Link href={"/favoris"}>Favoris</Link>
                             </nav>
                             <button className="py-2 rounded-[10px] px-8 bg-[#99331A] text-white">Ajouter un logement</button>
                         </>
@@ -52,7 +52,9 @@ export default function Header() {
                     <div className="flex items-center gap-7 text-[#99331A] text-sm">
                         <Link href={"#"}>+Ajouter un logement</Link>
                         <div className="flex gap-2 items-center">
+                            <Link href="/favoris">
                             <CiHeart />
+                            </Link>
                             <p>|</p>
                             <BiComment />
                         </div>
