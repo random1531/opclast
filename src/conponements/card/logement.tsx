@@ -41,9 +41,11 @@ export default function CardLogement({
   }, [slug, idFav]);
   const handleDeleteFav = ()=>{
     DeleteFav({ idFav })
+    setIsfav(true)
   };
    const handleAddFav = () => {
     AddTofavori({ idFav });
+    setIsfav(false)
   };
   return (
     <div className=" w-full h-[552] bg-white flex flex-col rounded-[10px] relative">

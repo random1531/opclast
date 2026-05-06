@@ -52,11 +52,13 @@ export default function Header() {
                     <div className="flex items-center gap-7 text-[#99331A] text-sm">
                         <Link href={"#"}>+Ajouter un logement</Link>
                         <div className="flex gap-2 items-center">
-                            <Link href="/favoris">
+                            <Link href="/favoris" aria-label="favoris">
                             <CiHeart />
                             </Link>
                             <p>|</p>
+                            <Link href="/messagerie" aria-label="messagerie">
                             <BiComment />
+                            </Link>
                         </div>
                     </div>
                 </header>
