@@ -12,7 +12,7 @@ import { useWindowSize } from "@/hooks/useWindowSize";
 import ModalCaroussel from "@/conponements/modal/modalCarrousel";
 
 export default function LogementDetails() {
-  const [detailsLogement, setDetailsLogement] = useState<PropertyDetail>();
+  const [detailsLogement, setDetailsLogement] = useState<PropertyDetail | undefined>();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [ActualPic,setActualPic]=useState<string|"">("")
   const [index,setIndex]=useState<number>(0)
@@ -49,9 +49,29 @@ export default function LogementDetails() {
     fetchLogement();
   }, [slug]);
 
+  const handleNext = () => {
+    const pics = detailsLogement?.pictures;
+    if (!pics || pics.length === 0) return;
+    setIndex((prev) => {
+      const next = (prev + 1) % pics.length;
+      setActualPic(pics[next] as string);
+      return next;
+    });
+  };
+
+  const handlePrev = () => {
+    const pics = detailsLogement?.pictures;
+    if (!pics || pics.length === 0) return;
+    setIndex((prev) => {
+      const next = (prev - 1 + pics.length) % pics.length;
+      setActualPic(pics[next] as string);
+      return next;
+    });
+  };
+
   return (
     <div className="text-black w-full flex md:gap-0 gap-2.5 flex-col md:px-0 px-4 md:pb-0 pb-20">
-      {isOpen && <ModalCaroussel Pictures={ActualPic} close={()=>setIsOpen(false)} />}
+      {isOpen && <ModalCaroussel Previous={handlePrev} Next={handleNext} Pictures={ActualPic} close={()=>setIsOpen(false)} />}
 
       <div className="flex md:h-89.5 ms:h-135 h-auto md:flex-row flex-col gap-2.5">
         <div className="flex md:flex-row flex-col gap-2.5 h-full md:w-[63%] w-full">
