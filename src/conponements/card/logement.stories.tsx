@@ -4,14 +4,10 @@ import Logement from "./logement";
 const meta = {
   title: "Conponements/Card/Logement",
   component: Logement,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Carte de logement affichant l'image, le titre, la localisation, le prix et le bouton favoris.",
-      },
-    },
-  },
+ 
+    tags: ['autodocs'],
+    
+
   argTypes: {
     Pictest: {
       control: "text",
@@ -23,6 +19,7 @@ const meta = {
     slug: { control: "text", description: "Lien/slug vers la page du logement" },
     idFav: { control: "text", description: "Identifiant utilisé pour les favoris" },
   },
+  args:{}
 } satisfies Meta<typeof Logement>;
 
 export default meta;

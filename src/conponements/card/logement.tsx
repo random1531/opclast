@@ -4,6 +4,7 @@ import { CiHeart } from "react-icons/ci";
 import { FaHeart } from "react-icons/fa";
 import AddTofavori, { DeleteFav } from "@/features/favoris/api";
 import { useEffect, useState } from "react";
+import Favoris from "../favori/favori";
 
 export default function CardLogement({
   Pictest,
@@ -20,33 +21,9 @@ export default function CardLogement({
   slug: string;
   idFav: string;
 }) {
-  const [isFav, setIsfav] = useState<boolean>(true);
 
- 
-  const fav= localStorage.getItem("fav")
- useEffect(() => {
-    try {
-      if (typeof window === "undefined") return;
-      const raw = localStorage.getItem("fav");
-      if (!raw) return;
-      const favs = JSON.parse(raw);
-      if (Array.isArray(favs) && favs.some((e: any) => e.slug === slug || e._id === idFav || e.id === idFav)) {
-        setIsfav(false);
-      } else {
-        setIsfav(true);
-      }
-    } catch {
-     
-    }
-  }, [slug, idFav]);
-  const handleDeleteFav = ()=>{
-    DeleteFav({ idFav })
-    setIsfav(true)
-  };
-   const handleAddFav = () => {
-    AddTofavori({ idFav });
-    setIsfav(false)
-  };
+
+
   return (
     <div className=" w-full h-[552] bg-white flex flex-col rounded-[10px] relative">
       <Image
@@ -57,11 +34,7 @@ export default function CardLogement({
         className="w-full h-94 object-cover rounded-t-[10px]"
       />
       <div className="absolute top-1.5 right-1.5 w-8 h-8 cursor-pointer bg-white flex rounded-sm items-center justify-center">
-        {isFav ? (
-            <CiHeart className="text-black" onClick={handleAddFav} />
-        ) : (
-            <FaHeart className="text-black"   onClick={handleDeleteFav}/>
-        )}
+        <Favoris idFav={idFav}  slug={slug}/>
       </div>
       <Link href={slug}>
         <div className="w-full pt-4 pr-6 pl-6 pb-6 flex flex-col justify-between h-[31%]">
