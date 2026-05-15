@@ -1,6 +1,6 @@
 export async function FetchLogements() {
     try {
-        const response = await fetch("https://p5opc-xvcz.vercel.app/api/properties", {
+        const response = await fetch("http://localhost:3000/api/properties", {
             method: "GET",
             headers: {
                 Accept: "application/json",
@@ -18,7 +18,7 @@ export async function FetchLogements() {
 
 export async function FetchLogementDetail({ ids }: { ids: string }) {
     try {
-        const response = await fetch(`https://p5opc-xvcz.vercel.app/api/properties/${ids}`, {
+        const response = await fetch(`http://localhost:3000/api/properties/${ids}`, {
             method: "GET",
             headers: {
                 Accept: "application/json",
