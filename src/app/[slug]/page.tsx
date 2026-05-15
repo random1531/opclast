@@ -71,7 +71,7 @@ export default function LogementDetails() {
 
   return (
     <div className="text-black w-full flex md:gap-0 gap-2.5 flex-col md:px-0 px-4 md:pb-0 pb-20">
-      {isOpen && <ModalCaroussel Previous={handlePrev} Next={handleNext} Pictures={ActualPic} close={()=>setIsOpen(false)} />}
+      {isOpen && <ModalCaroussel nbPictures={detailsLogement?.pictures.length || 0} Previous={handlePrev} Next={handleNext} Pictures={ActualPic} close={()=>setIsOpen(false)} />}
 
       <div className="flex md:h-89.5 ms:h-135 h-auto md:flex-row flex-col gap-2.5">
         <div className="flex md:flex-row flex-col gap-2.5 h-full md:w-[63%] w-full">
@@ -81,8 +81,9 @@ export default function LogementDetails() {
               onClick={()=>setIsOpen(true)}
               width={800}
               height={800}
+              loading="eager"
               alt=""
-              className="md:h-full ms:h-[80%] h-105.5 md:w-1/2 w-full object-cover rounded-[10px]"
+              className="md:h-auto ms:h-[80%] h-105.5 md:w-1/2 w-full object-cover rounded-[10px]"
             />
           )}
           <div className="grid md:grid-cols-2 grid-cols-4 gap-2.5 h-full">
@@ -96,6 +97,7 @@ export default function LogementDetails() {
                       src={picture}
                       width={800}
                       height={800}
+                      loading="eager"
                       alt=""
                       className="md:h-43.5 h-28  md:w-full object-cover rounded-[10px]"
                     />

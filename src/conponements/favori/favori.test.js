@@ -24,13 +24,13 @@ beforeEach(() => {
   mockAdd.mockClear();
   mockDelete.mockClear();
   cleanup();
-  // clear jsdom localStorage
+
   if (global.localStorage && typeof global.localStorage.clear === 'function') {
     global.localStorage.clear();
   }
 });
 test('renders outlined heart when there is no matching favorite in localStorage', () => {
-  // no fav in localStorage
+ 
   render(React.createElement(Favori, { idFav: '123', slug: 'slug-a' }));
   expect(screen.getByTestId('ci-heart')).toBeInTheDocument();
 });

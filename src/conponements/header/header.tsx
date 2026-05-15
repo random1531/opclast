@@ -22,7 +22,7 @@ export default function Header() {
                 <header className={`flex gap-10 flex-col items-start py-4 px-4 w-full bg-white ${isOpenMenu ? ('h-screen') : ('h-21.5 ')} shadow-[0px_4px_4px_0px_#B6B6B60D]`}>
 
                     <div className="flex w-full justify-between items-center">
-                        <Image src={LogoLight} width={46} height={53} alt="logo" />
+                        <Image src={LogoLight} width={46} height={53} alt="kaza" className="w-auto" />
                         {isOpenMenu ?
                             (<IoCloseOutline onClick={() => setIsOpenMenu(false)} className="text-black text-[46px] cursor-pointer" />)
                             :
@@ -48,7 +48,7 @@ export default function Header() {
                         <Link href={"/"}>Accueil</Link>
                         <Link href={"/apropos"}>À propos</Link>
                     </nav>
-                    <Image src={Logo} width={113} height={40} alt="logo" />
+                    <Image src={Logo} width={113} height={40} alt="kaza" className="w-auto"/>
                     <div className="flex items-center gap-7 text-[#99331A] text-sm">
                         <Link href={"#"}>+Ajouter un logement</Link>
                         <div className="flex gap-2 items-center">

@@ -30,8 +30,9 @@ export default function CardLogement({
         src={Pictest}
         width={800}
         height={800}
+        loading="eager"
         alt=""
-        className="w-full h-94 object-cover rounded-t-[10px]"
+        className="w-auto h-94 object-cover rounded-t-[10px]"
       />
       <div className="absolute top-1.5 right-1.5 w-8 h-8 cursor-pointer bg-white flex rounded-sm items-center justify-center">
         <Favoris idFav={idFav}  slug={slug}/>
@@ -39,7 +40,7 @@ export default function CardLogement({
       <Link href={slug}>
         <div className="w-full pt-4 pr-6 pl-6 pb-6 flex flex-col justify-between h-[31%]">
           <div className="flex flex-col gap-2">
-            <h3 className="text-[#0D0D0D] text-xl">{TitleLogement}</h3>
+            <h2 className="text-[#0D0D0D] text-xl">{TitleLogement}</h2>
             <p className="text-[#565656] text-sm">{LocationLogement}</p>
           </div>
           <p className="text-[#0D0D0D]">{price}€ par nuit</p>

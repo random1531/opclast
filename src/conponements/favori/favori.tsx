@@ -32,9 +32,10 @@ export default function favori({
       }
     } catch {}
   }, [slug, idFav]);
+
   const handleDeleteFav = () => {
     const tok = Cookies.get("token");
-    if (tok !== null) {
+    if (tok === undefined) {
       setIsconnected(true);
     }else{
 
@@ -44,7 +45,7 @@ export default function favori({
   };
   const handleAddFav = () => {
     const tok = Cookies.get("token");
-    if (tok !== null) {
+    if (tok === undefined) {
       setIsconnected(true);
     } else {
       AddTofavori({ idFav });

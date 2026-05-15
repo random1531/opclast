@@ -1,11 +1,9 @@
 "use client"
 import CardLogement from "@/conponements/card/logement";
 import HeroHeader from "@/conponements/heroheader/heroHeader";
-import Image from "next/image";
 import { FetchLogements } from "@/features/logements/api";
 import { useEffect, useState } from "react";
 import ImageHero from "../../public/PicHomePage.jpg"
-import { useWindowSize } from "@/hooks/useWindowSize";
 
 
 

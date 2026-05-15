@@ -6,7 +6,7 @@ export default function Hote({picture,name,rating_avg}:{picture:string,name:stri
             <h2 className="text-[16px] font-medium --font-inter">Votre hote</h2>
             <div className="flex gap-4.5 items-center justify-between">
                 {picture ? (
-                    <Image src={picture} width={100} height={100} alt="" className="rounded-[10px] h-20.5 w-20.5 object-cover" />
+                    <Image src={picture} width={100} loading="eager" height={100} alt="" className="rounded-[10px] h-20.5 w-auto object-cover" />
                 ) : null}
                 <p>{name}</p>
                 <div className="flex gap-1 items-center px-2 py-2 bg-[#F5F5F5] rounded-[10px]">
