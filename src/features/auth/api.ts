@@ -12,7 +12,7 @@ export default async function Loginuser({
     password,
   };
   try {
-    const res = await fetch(`http://localhost:3000/auth/login`, {
+    const res = await fetch(`https://p5opc-xvcz.vercel.app/auth/login`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -63,7 +63,7 @@ export async function RegisterUser({
     role: "client",
   };
   try {
-    const res = await fetch(`http://localhost:3000/auth/register`, {
+    const res = await fetch(`https://p5opc-xvcz.vercel.app/auth/register`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -84,7 +84,7 @@ export async function FetchUser({id}:{id:number}){
    const token = Cookies.get("token");
    
  try {
-        const res = await fetch(`http://localhost:3000/api/users/${id}`,{
+        const res = await fetch(`https://p5opc-xvcz.vercel.app/api/users/${id}`,{
             method:"GET",
             headers:{ Accept: "application/json",
           "Content-Type": "application/json",

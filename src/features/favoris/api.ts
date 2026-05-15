@@ -2,7 +2,7 @@ import Cookies from "js-cookie"
 export default async function AddTofavori({idFav}:{idFav:string}){
     const token = Cookies.get("token");
     try {
-        const res = await fetch(`http://localhost:3000/api/properties/${idFav}/favorite`,{
+        const res = await fetch(`https://p5opc-xvcz.vercel.app/api/properties/${idFav}/favorite`,{
             method:"POST",
             headers:{ Accept: "application/json",
           "Content-Type": "application/json",
@@ -19,7 +19,7 @@ export default async function AddTofavori({idFav}:{idFav:string}){
 export async function DeleteFav({idFav}:{idFav:string}){
      const token = Cookies.get("token");
     try {
-        const res = await fetch(`http://localhost:3000/api/properties/${idFav}/favorite`,{
+        const res = await fetch(`https://p5opc-xvcz.vercel.app/api/properties/${idFav}/favorite`,{
             method:"DELETE",
             headers:{ Accept: "application/json",
           "Content-Type": "application/json",
@@ -37,7 +37,7 @@ export async function MyFav(){
     const token = Cookies.get("token");
     const idUser = Cookies.get("uid");
     try {
-        const res = await fetch(`http://localhost:3000/api/users/${idUser}/favorites`,{
+        const res = await fetch(`https://p5opc-xvcz.vercel.app/api/users/${idUser}/favorites`,{
             method:"GET",
             headers:{ Accept: "application/json",
           "Content-Type": "application/json",
