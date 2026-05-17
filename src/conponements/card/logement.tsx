@@ -37,7 +37,7 @@ export default function CardLogement({
       <div className="absolute top-1.5 right-1.5 w-8 h-8 cursor-pointer bg-white flex rounded-sm items-center justify-center">
         <Favoris idFav={idFav}  slug={slug}/>
       </div>
-      <Link href={slug}>
+      <Link href={`logement/${slug}`}>
         <div className="w-full pt-4 pr-6 pl-6 pb-6 flex flex-col justify-between h-[31%]">
           <div className="flex flex-col gap-2">
             <h2 className="text-[#0D0D0D] text-xl">{TitleLogement}</h2>

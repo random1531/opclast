@@ -56,6 +56,7 @@ type PropertyDetail = {
     pictures: string[]
     equipments: string[]
     tags: string[]
+    error?:string
 }
 
 type Rating = {

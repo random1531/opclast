@@ -10,10 +10,12 @@ import Categorie from "@/conponements/logement/categorie";
 import Hote from "@/conponements/logement/hote";
 import { useWindowSize } from "@/hooks/useWindowSize";
 import ModalCaroussel from "@/conponements/modal/modalCarrousel";
+import { notFound } from "next/navigation";
 
 export default function LogementDetails() {
   const [detailsLogement, setDetailsLogement] = useState<PropertyDetail | undefined>();
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  
   const [ActualPic,setActualPic]=useState<string|"">("")
   const [index,setIndex]=useState<number>(0)
   const params = useParams();
@@ -23,8 +25,10 @@ export default function LogementDetails() {
 
  useEffect(() => {
     async function fetchLogement() {
-      if (!slug) return;
+      if (!slug) return ;
       const result = await FetchLogementDetail({ ids: slug });
+      console.log(result?.error)
+      if(result?.error === "Property not found")return notFound();
       if (result) {
         setDetailsLogement(result);
 
